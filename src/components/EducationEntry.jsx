@@ -1,11 +1,18 @@
 export default function EducationEntry() {
   return (
-    <div className="education-entry">
-      <strong>George Brown</strong>, <span>Toronto, ON</span>,
-      <p>Social Service Worker</p>
+    <div className="addable-entry">
+      <span>
+        <strong>George Brown</strong>, Toronto, ON - Social Service Worker
+      </span>
       <p>
-        <em>from</em> <time dateTime="2019-09">September, 2019</time>{" "}
-        <em>to</em> <time dateTime="2021-05">May, 2021</time>
+        <em>from</em>{" "}
+        <time className="time-entry" dateTime="2019-09">
+          September, 2019
+        </time>{" "}
+        <em>to</em>{" "}
+        <time className="time-entry" dateTime="2021-05">
+          May, 2021
+        </time>
       </p>
       <ul>
         <li>
