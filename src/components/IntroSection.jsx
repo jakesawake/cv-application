@@ -27,39 +27,35 @@ export default function IntroSection() {
   }
 
   // using ternary if isEditing bool is true to display either the editable form element or just a read only version of the applicant's data
-  return (
-    <div className="intro-section">
-      {isEditing ? (
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="applicantInput">Applicant name:</label>
-          <input
-            id="applicantInput"
-            name="name"
-            value={applicant.name}
-            onChange={handleChange}
-          />
+  return isEditing ? (
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="applicantInput">Applicant name:</label>
+      <input
+        id="applicantInput"
+        name="name"
+        value={applicant.name}
+        onChange={handleChange}
+      />
 
-          <label htmlFor="applicantObjective">Applicant objective:</label>
-          <textarea
-            id="applicantObjective"
-            name="objective"
-            value={applicant.objective}
-            onChange={handleChange}
-          />
+      <label htmlFor="applicantObjective">Applicant objective:</label>
+      <textarea
+        id="applicantObjective"
+        name="objective"
+        value={applicant.objective}
+        onChange={handleChange}
+      />
 
-          <button type="submit" className="submit-button">
-            Submit
-          </button>
-        </form>
-      ) : (
-        <>
-          <h1 className="applicant-name">{applicant.name}</h1>
-          <p className="applicant-intro">{applicant.objective}</p>
-          <button type="button" onClick={() => setIsEditing(true)}>
-            Edit
-          </button>
-        </>
-      )}
-    </div>
+      <button type="submit" className="rounded-[5px] p-1.5 text-[12px]">
+        Submit
+      </button>
+    </form>
+  ) : (
+    <>
+      <h1 className="text-[2rem] font-bold">{applicant.name}</h1>
+      <p>{applicant.objective}</p>
+      <button type="button" onClick={() => setIsEditing(true)}>
+        Edit
+      </button>
+    </>
   );
 }

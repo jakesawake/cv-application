@@ -8,14 +8,14 @@ import "./styles/App.css";
 function App() {
   return (
     <div className="cv">
-      <header className="cv-header">
+      <header className="[grid-area:header]">
         <IntroSection />
       </header>
-      <main className="cv-main">
+      <main className="[grid-area:main]">
         <ExperienceSection />
       </main>
       <ContactSection />
-      <aside className="cv-sidebar">
+      <aside className="flex flex-col gap-1 [grid-area:sidebar]">
         <SkillsSection />
         <EducationSection />
       </aside>

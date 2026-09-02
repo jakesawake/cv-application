@@ -28,8 +28,8 @@ export default function ExperienceSection() {
   }
 
   return (
-    <div className="experience-section">
-      <h2>Experience</h2>
+    <div className="flex flex-col gap-3">
+      <h2 className="font-bold text-blue-500">Experience</h2>
       {entries.map((entry) => (
         <ExperienceEntry
           key={entry.id}
