@@ -15,7 +15,7 @@ export default function ExperienceEntry({ entry, onChange, onDelete }) {
   }
 
   return (
-    <div className="addable-entry">
+    <div className="flex flex-col gap-0.5">
       {isEditing ? (
         <form onSubmit={handleSubmit}>
           <label>
@@ -78,11 +78,15 @@ export default function ExperienceEntry({ entry, onChange, onDelete }) {
             />
           </label>
 
-          <button type="button" onClick={onDelete(entry.id)}>
+          <button
+            className="rounded-[5px] p-1.5 text-[12px]"
+            type="button"
+            onClick={() => onDelete(entry.id)}
+          >
             Remove
           </button>
 
-          <button type="submit" className="submit-button">
+          <button type="submit" className="rounded-[5px] p-1.5 text-[12px]">
             Submit
           </button>
         </form>
@@ -91,16 +95,30 @@ export default function ExperienceEntry({ entry, onChange, onDelete }) {
           <span>
             <strong>{entry.company}</strong>, {entry.city} - {entry.title}
           </span>
-          <time className="time-entry" dateTime={entry.dateFrom}>
+          <time className="italic" dateTime={entry.dateFrom}>
             {entry.dateFrom}
           </time>{" "}
           to
-          <time className="time-entry" dateTime={entry.dateTo}>
+          <time className="italic" dateTime={entry.dateTo}>
             {entry.dateTo}
           </time>
           <ul>
             <li>{entry.duties}</li>
           </ul>
+          <button
+            className="rounded-[5px] p-1.5 text-[12px]"
+            type="button"
+            onClick={() => setIsEditing(true)}
+          >
+            Edit
+          </button>
+          <button
+            className="rounded-[5px] p-1.5 text-[12px]"
+            type="button"
+            onClick={() => onDelete(entry.id)}
+          >
+            Remove Entry
+          </button>
         </>
       )}
     </div>
