@@ -31,6 +31,7 @@ export default function IntroSection() {
     <form onSubmit={handleSubmit}>
       <label htmlFor="applicantInput">Applicant name:</label>
       <input
+        className="border border-blue-500"
         id="applicantInput"
         name="name"
         value={applicant.name}
@@ -39,13 +40,17 @@ export default function IntroSection() {
 
       <label htmlFor="applicantObjective">Applicant objective:</label>
       <textarea
+        className="border border-blue-500"
         id="applicantObjective"
         name="objective"
         value={applicant.objective}
         onChange={handleChange}
       />
 
-      <button type="submit" className="rounded-[5px] p-1.5 text-[12px]">
+      <button
+        type="submit"
+        className="rounded-[5px] border border-blue-500 p-1.5 text-[12px]"
+      >
         Submit
       </button>
     </form>
