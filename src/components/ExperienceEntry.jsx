@@ -17,10 +17,11 @@ export default function ExperienceEntry({ entry, onChange, onDelete }) {
   return (
     <div className="flex flex-col gap-0.5">
       {isEditing ? (
-        <form onSubmit={handleSubmit}>
+        <form className="flex flex-col flex-wrap" onSubmit={handleSubmit}>
           <label>
             Company name:
             <input
+              className="border border-blue-500"
               type="text"
               name="company"
               value={entry.company}
@@ -31,6 +32,7 @@ export default function ExperienceEntry({ entry, onChange, onDelete }) {
           <label>
             City name:
             <input
+              className="border border-blue-500"
               type="text"
               name="city"
               value={entry.city}
@@ -41,6 +43,7 @@ export default function ExperienceEntry({ entry, onChange, onDelete }) {
           <label>
             Title name:
             <input
+              className="border border-blue-500"
               type="text"
               name="title"
               value={entry.title}
@@ -51,6 +54,7 @@ export default function ExperienceEntry({ entry, onChange, onDelete }) {
           <label>
             Start date:
             <input
+              className="border border-blue-500"
               type="text"
               name="dateFrom"
               value={entry.dateFrom}
@@ -61,6 +65,7 @@ export default function ExperienceEntry({ entry, onChange, onDelete }) {
           <label>
             End date:
             <input
+              className="border border-blue-500"
               type="text"
               name="dateTo"
               value={entry.dateTo}
@@ -71,6 +76,7 @@ export default function ExperienceEntry({ entry, onChange, onDelete }) {
           <label>
             Duties:
             <input
+              className="border border-blue-500"
               type="text"
               name="duties"
               value={entry.duties}
@@ -79,14 +85,17 @@ export default function ExperienceEntry({ entry, onChange, onDelete }) {
           </label>
 
           <button
-            className="rounded-[5px] p-1.5 text-[12px]"
+            className="rounded-[5px] border border-blue-500 p-1.5 text-[12px]"
             type="button"
             onClick={() => onDelete(entry.id)}
           >
             Remove
           </button>
 
-          <button type="submit" className="rounded-[5px] p-1.5 text-[12px]">
+          <button
+            type="submit"
+            className="rounded-[5px] border border-blue-500 p-1.5 text-[12px]"
+          >
             Submit
           </button>
         </form>
@@ -95,13 +104,15 @@ export default function ExperienceEntry({ entry, onChange, onDelete }) {
           <span>
             <strong>{entry.company}</strong>, {entry.city} - {entry.title}
           </span>
-          <time className="italic" dateTime={entry.dateFrom}>
-            {entry.dateFrom}
-          </time>{" "}
-          to
-          <time className="italic" dateTime={entry.dateTo}>
-            {entry.dateTo}
-          </time>
+          <span>
+            <time className="italic" dateTime={entry.dateFrom}>
+              {entry.dateFrom}
+            </time>{" "}
+            to{" "}
+            <time className="italic" dateTime={entry.dateTo}>
+              {entry.dateTo}
+            </time>
+          </span>
           <ul>
             <li>{entry.duties}</li>
           </ul>
