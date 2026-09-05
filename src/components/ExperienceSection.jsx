@@ -1,30 +1,20 @@
-import { useState } from "react";
 import ExperienceEntry from "./ExperienceEntry";
+import useEntryList from "../hooks/useEntryList";
 
 export default function ExperienceSection() {
-  const [entries, setEntries] = useState([]);
+  const { entries, handleEntryChange, handleEntryDelete, handleAddEntry } =
+    useEntryList(createBlankExperienceSection);
 
-  function handleEntryChange(updated) {
-    setEntries((prev) => prev.map((e) => (e.id === updated.id ? updated : e)));
-  }
-
-  function handleEntryDelete(id) {
-    setEntries((prev) => prev.filter((e) => e.id !== id));
-  }
-
-  function handleAddEntry() {
-    setEntries((prev) => [
-      ...prev,
-      {
-        id: crypto.randomUUID(),
-        company: "",
-        city: "",
-        title: "",
-        dateFrom: "",
-        dateTo: "",
-        duties: "",
-      },
-    ]);
+  function createBlankExperienceSection() {
+    return {
+      id: crypto.randomUUID(),
+      company: "",
+      city: "",
+      title: "",
+      dateFrom: "",
+      dateTo: "",
+      duties: "",
+    };
   }
 
   return (

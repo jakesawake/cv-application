@@ -1,30 +1,20 @@
-import { useState } from "react";
 import EducationEntry from "./EducationEntry";
+import useEntryList from "../hooks/useEntryList";
 
 export default function EducationSection() {
-  const [entries, setEntries] = useState([]);
+  const { entries, handleEntryChange, handleEntryDelete, handleAddEntry } =
+    useEntryList(createBlankEducationSection);
 
-  function handleEntryChange(updated) {
-    setEntries((prev) => prev.map((e) => (e.id === updated.id ? updated : e)));
-  }
-
-  function handleEntryDelete(id) {
-    setEntries((prev) => prev.filter((e) => e.id !== id));
-  }
-
-  function handleAddEntry() {
-    setEntries((prev) => [
-      ...prev,
-      {
-        id: crypto.randomUUID(),
-        school: "",
-        city: "",
-        programName: "",
-        startDate: "",
-        endDate: "",
-        accomplished: "",
-      },
-    ]);
+  function createBlankEducationSection() {
+    return {
+      id: crypto.randomUUID(),
+      school: "",
+      city: "",
+      programName: "",
+      startDate: "",
+      endDate: "",
+      accomplished: "",
+    };
   }
 
   return (
